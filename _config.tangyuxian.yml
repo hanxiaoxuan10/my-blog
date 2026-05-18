@@ -1,0 +1,136 @@
+# 博客头像
+avatar: /images/head/head.jpg
+
+# 背景图
+background:
+  path: /images/background/xiaomai.jpg
+  width: 1280
+  height: 726
+
+# 标签封面映射
+tagsCovers:
+  JavaScript: /images/post/JavaScript.jpg
+  TypeScript: /images/post/TypeScript.jpg
+  Hexo: /images/post/markerdown.jpg
+
+# 网站图标
+favicon:
+  href: /images/head/head.jpg
+  type: image/jpg
+
+# 功能开关
+function:
+  globalToc: true
+  wordCount: false
+  copyCode: true
+
+# 图片 CDN
+imageCDN:
+  enable: false
+  origin: /../../images/
+  to: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/
+
+# 自定义样式
+customStyles:
+  - custom.css
+
+# 附加图标库
+iconlib: //at.alicdn.com/t/font_2421060_8z08qcz5sq3.css
+
+# 导航菜单
+menu:
+  回到首页:
+    - /
+    - icon-meishi
+  文章归档:
+    - /archives.html
+    - icon-hanbao1
+  关于我:
+    - /about.html
+    - icon-jiubei1
+  标签:
+    - /tags.html
+    - icon-tangguo
+  分类:
+    - /categories.html
+    - icon-cola
+
+# 侧边栏组件
+widgets:
+  - name: switch_theme
+    enable: true
+  - name: search
+    enable: true
+    options:
+      search:
+        type: local
+        url: https://cn.bing.com/search?q=site:yourblog.com
+  - name: social
+    enable: true
+    options:
+      social:
+        GitHub:
+          - https://github.com/yourname
+          - icon-github
+          - rgb(25, 23, 23)
+          - rgba(25, 23, 23, .15)
+        mail:
+          - mailto:yourname@example.com
+          - icon-mail-fill
+          - rgb(249,8,8)
+          - rgba(249,8,8,.1)
+  - name: category
+    enable: true
+  - name: tagcloud
+    enable: true
+    options:
+      maxTagcloud: 17
+  - name: archive
+    enable: true
+    options:
+      widgetAchive:
+        archive_type: year
+        show_count: true
+  - name: recent_posts
+    enable: true
+  - name: link
+    enable: false
+    options:
+      widgetLink: []
+
+# 扩展挂件
+pendants:
+  - name: clock
+    enable: true
+  - name: qweather
+    enable: false
+
+# 复制版权文案
+copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权，非商业转载请注明出处。\n来源：%url"
+
+# 聊天机器人
+chatbot:
+  enable: false
+  options:
+    title: AI 助手
+    chat: ''
+    style: "width: 100%; height: 100%;overflow: hidden;"
+
+# 网站头部 slot
+slotHead: ""
+slotFooter: ""
+slotSidebar: ""
+# 评论系统 - 使用 Twikoo
+# 部署文档: https://twikoo.js.org/quick-start.html#vercel
+slotComment: |
+  <div id="tcomment"></div>
+  <script src="https://cdn.staticfile.org/twikoo/1.6.41/twikoo.all.min.js"></script>
+  <script>
+  twikoo.init({
+    envId: 'https://你的vercel域名.vercel.app',  // 部署后替换此处
+    el: '#tcomment',
+  })
+  </script>
+slotCopyright: |
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+slotArticleEnd: ""
