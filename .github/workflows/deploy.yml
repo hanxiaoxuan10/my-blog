@@ -1,0 +1,35 @@
+name: 自动部署博客
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. 检出代码
+        uses: actions/checkout@v4
+
+      - name: 2. 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: 3. 安装依赖
+        run: npm ci --legacy-peer-deps
+
+      - name: 4. 生成静态文件
+        run: npx hexo generate
+
+      - name: 5. 上传到服务器（FTP）
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}      # FTP 地址
+          username: ${{ secrets.FTP_USER }}    # FTP 用户名
+          password: ${{ secrets.FTP_PASS }}    # FTP 密码
+          local-dir: ./public/                  # 上传 public 目录
+          server-dir: /                         # 上传到服务器根目录
